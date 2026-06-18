@@ -4,20 +4,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FUENEX - App für Fliesenleger</title>
+
+    <!-- SEO: Оптимизированный заголовок (до 60 символов) -->
+    <title>FUENEX | Die intuitive App für Fliesenleger</title>
+
+    <!-- SEO: Мета-описание (140-160 символов с ключевыми словами) -->
+    <meta name="description"
+        content="Die Software & App für Fliesenleger in Deutschland. Mobiles Aufmaß, präzise Materialkalkulation und rechtssichere Angebote in unter 10 Minuten erstellen.">
+
+    <!-- SEO: Каноническая ссылка -->
+    <link rel="canonical" href="https://fuenex.de/">
+
+    <!-- Social Media SEO (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FUENEX | Die App für Fliesenleger - Aufmaß & Angebot">
+    <meta property="og:description"
+        content="Schnelles mobiles Aufmaß, präzise Materialberechnung und rechtssichere Angebote (ZUGFeRD/XRechnung) direkt auf der Baustelle erstellen.">
+    <meta property="og:url" content="https://fuenex.de/">
+    <meta property="og:image" content="https://fuenex.de/images/og-share.jpg">
+    <meta property="og:site_name" content="FUENEX">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FUENEX | Die App für Fliesenleger">
+    <meta name="twitter:description"
+        content="Mobiles Aufmaß und rechtssichere Angebote für Fliesenleger-Betriebe direkt auf dem Smartphone erstellen.">
+
+    <!-- Иконка -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23001C66%22/><text y=%2272%22 x=%2227%22 font-family=%22Inter, sans-serif%22 font-size=%2265%22 font-weight=%22800%22 fill=%22%23FFFFFF%22>F</text></svg>">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Google Fonts (Inter для текста + Michroma для логотипа) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Стили для плавного скролла и компенсации высоты закрепленного хедера -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px; 
+        }
+        
+        .sticky-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .navbar-nav .nav-link {
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus {
+            color: #001C66;
+        }
+    </style>
+
+    <!-- SEO & AI: Схема 1 (SoftwareApplication) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "FUENEX",
+        "operatingSystem": "iOS, Web",
+        "applicationCategory": "BusinessApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "description": "Die intuitive App und Software für Fliesenleger. Erstellen Sie präzise Materialkalkulationen und rechtssichere Angebote direkt vor Ort beim Kunden.",
+        "featureList": "Mobiles 3D-Aufmaß, Materialberechnung für Kleber und Fugenmörtel, PDF-Angebotserstellung, E-Rechnung GoBD-konform (ZUGFeRD/XRechnung)"
+    }
+    </script>
+
+    <!-- SEO & AI: Схема 2 (FAQPage) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Ist FUENEX für die E-Rechnungspflicht ab 2025 in Deutschland bereit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. FUENEX unterstützt die gesetzlichen Vorgaben der E-Rechnungspflicht in Deutschland ab dem 1. Januar 2025. Die App generiert automatisch GoBD-konforme elektronische Rechnungen im ZUGFeRD- und XRechnung-Format."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Wie funktioniert das digitale 3D-Aufmaß mit der App?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mit einem LiDAR-fähigen Apple-Gerät (ab iPhone 12 Pro) nutzt FUENEX die Apple RoomPlan API, um Wände, Fenster, Türen und Nischen automatisch zu vermessen. Für andere Geräte gibt es einen manuellen Eingabemodus."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Kann ich eigene Materialpreise und Leistungen hinterlegen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Im Firmenprofil können Sie eigene Leistungskataloge und Material-Preislisten für Fliesen, Kleber, Fugenmörtel und Arbeitszeit anlegen, die automatisch für die Angebotserstellung genutzt werden."
+        }
+      }]
+    }
+    </script>
 </head>
 
 <body>
@@ -60,13 +164,13 @@
         </div>
     </nav>
 
-    <!-- Первый экран (Hero) - Картинка на фоне, текст поверх -->
+    <!-- Первый экран (Hero) - Картинка на фоне, text поверх -->
     <header class="hero-section" id="home">
         <div class="container">
             <div class="row">
-                <!-- Текст занимает 5 колонок из 12 на больших экранах, оставляя правую часть картинки открытой -->
+                <!-- Текст занимает 5 колонок из 12 на больших экранах -->
                 <div class="col-lg-5 text-center text-lg-start">
-                    <h1 class="hero-title ">App für Fliesenleger</h1>
+                    <h1 class="hero-title ">FUENEX – Die intuitive App für Fliesenleger</h1>
                     <p class="hero-subtitle">Aufmaß, Kalkulation und Angebot – in einer App.</p>
                     <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
                         <a href="https://home-build.smartsoftsystem.de" class="btn btn-custom-primary">
@@ -85,6 +189,13 @@
     <!-- Блок процесса (Шаги 1-4) -->
     <section class="process-section" id="funktionen">
         <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold" style="color: #001C66; font-size: 2rem;">In 4 einfachen Schritten zum fertigen Angebot</h2>
+                    <p class="text-muted">Digitalisieren Sie Ihre Baustelle – schnell, präzise und unkompliziert.</p>
+                </div>
+            </div>
+
             <div class="row g-4 justify-content-center">
 
                 <!-- Шаг 1 -->
@@ -174,7 +285,7 @@
                             style="width: 50px; height: 50px; background-color: rgba(0, 28, 102, 0.08); border-radius: 12px;">
                             <i class="bi bi-tag" style="font-size: 1.5rem; color: #001C66;"></i>
                         </div>
-                        <h4 class="fw-bold h5 mb-3" style="color: #001C66;">Fokus auf Ihr Gewerk</h4>
+                        <h3 class="fw-bold h5 mb-3" style="color: #001C66;">Fokus auf Ihr Gewerk</h3>
                         <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.5;">
                             Keine komplizierte "All-in-One"-Software. Wir verstehen Fliesenleger – von exakten
                             Verschnittfaktoren bis zur präzisen Kalkulation von Kleber, Fugenmörtel und Fliesenformaten.
@@ -189,7 +300,7 @@
                             style="width: 50px; height: 50px; background-color: rgba(0, 28, 102, 0.08); border-radius: 12px;">
                             <i class="bi bi-file-earmark-check" style="font-size: 1.5rem; color: #001C66;"></i>
                         </div>
-                        <h4 class="fw-bold h5 mb-3" style="color: #001C66;">Zukunftssicher & Konform</h4>
+                        <h3 class="fw-bold h5 mb-3" style="color: #001C66;">Zukunftssicher & Konform</h3>
                         <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.5;">
                             Erfüllen Sie mühelos die neuen gesetzlichen Anforderungen ab 2025. FUENEX generiert konforme
                             E-Rechnungen (XRechnung / ZUGFeRD) ganz ohne zusätzliche externe Systeme.
@@ -204,7 +315,7 @@
                             style="width: 50px; height: 50px; background-color: rgba(0, 28, 102, 0.08); border-radius: 12px;">
                             <i class="bi bi-shield-lock" style="font-size: 1.5rem; color: #001C66;"></i>
                         </div>
-                        <h4 class="fw-bold h5 mb-3" style="color: #001C66;">Sicherheit & Hosting in DE</h4>
+                        <h3 class="fw-bold h5 mb-3" style="color: #001C66;">Sicherheit & Hosting in DE</h3>
                         <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.5;">
                             Ihre Daten und Kalkulationen sind sicher. Wir garantieren strikte Einhaltung der
                             DSGVO-Richtlinien. Alle Kundendaten liegen vollständig isoliert auf hochsicheren Servern in
@@ -225,6 +336,100 @@
                     <a href="https://home-build.smartsoftsystem.de" class="btn btn-custom-primary">
                         Kostenlos testen <i class="bi bi-chevron-right ms-1"></i>
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO & AI: FAQ Sektion (Оптимизация для ИИ-поисковиков) -->
+    <section class="faq-section py-5" id="faq" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <span class="text-uppercase fw-bold"
+                        style="font-size: 0.8rem; letter-spacing: 1.5px; color: #001C66;">Fragen & Antworten</span>
+                    <h2 class="mt-2 fw-bold" style="color: #001C66; font-size: 2.25rem;">Häufig gestellte Fragen zu
+                        FUENEX</h2>
+                    <p class="text-muted">Alles, was Sie über unsere Softwarelösung für Fliesenleger wissen müssen.</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion border-0" id="faqAccordion">
+
+                        <!-- Вопрос 1 (Про E-Rechnung) -->
+                        <div class="accordion-item border-0 border-bottom py-3">
+                            <h3 class="accordion-header" id="headingOne">
+                                <button
+                                    class="accordion-button collapsed fw-semibold bg-transparent text-dark shadow-none ps-0"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                    aria-expanded="false" aria-controls="collapseOne"
+                                    style="font-size: 1.1rem; color: #001C66 !important;">
+                                    Ist FUENEX für die E-Rechnungspflicht ab 2025 in Deutschland bereit?
+                                </button>
+                            </h3>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body ps-0 text-muted"
+                                    style="font-size: 0.95rem; line-height: 1.6;">
+                                    Ja. FUENEX unterstützt die gesetzlichen Vorgaben der E-Rechnungspflicht für
+                                    B2B-Umsätze in Deutschland ab dem 1. Januar 2025. Die App generiert automatisch
+                                    strukturierte elektronische Rechnungen in den gängigen Formaten
+                                    <strong>ZUGFeRD</strong> und <strong>XRechnung</strong>, die den GoBD-Richtlinien
+                                    entsprechen.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Вопрос 2 (Про LiDAR / Aufmaß) -->
+                        <div class="accordion-item border-0 border-bottom py-3">
+                            <h3 class="accordion-header" id="headingTwo">
+                                <button
+                                    class="accordion-button collapsed fw-semibold bg-transparent text-dark shadow-none ps-0"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                    aria-expanded="false" aria-controls="collapseTwo"
+                                    style="font-size: 1.1rem; color: #001C66 !important;">
+                                    Wie funktioniert das digitale 3D-Aufmaß mit der App?
+                                </button>
+                            </h3>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body ps-0 text-muted"
+                                    style="font-size: 0.95rem; line-height: 1.6;">
+                                    Mit einem LiDAR-fähigen Apple-Gerät (ab iPhone 12 Pro / iPad Pro) nutzt FUENEX die
+                                    moderne <strong>Apple RoomPlan API</strong>. Sie scannen den Raum einfach mit der
+                                    Kamera: Wände, Fenster, Türen und Nischen werden automatisch erkannt und
+                                    zentimetergenau vermessen. Für ältere Geräte steht ein manueller Eingabemodus zur
+                                    Verfügung.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Вопрос 3 (Про расчет материалов) -->
+                        <div class="accordion-item border-0 border-bottom py-3">
+                            <h3 class="accordion-header" id="headingThree">
+                                <button
+                                    class="accordion-button collapsed fw-semibold bg-transparent text-dark shadow-none ps-0"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                    aria-expanded="false" aria-controls="collapseThree"
+                                    style="font-size: 1.1rem; color: #001C66 !important;">
+                                    Kann ich eigene Materialpreise und Leistungen hinterlegen?
+                                </button>
+                            </h3>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body ps-0 text-muted"
+                                    style="font-size: 0.95rem; line-height: 1.6;">
+                                    Ja. In Ihrem persönlichen Firmenprofil können Sie einen eigenen Leistungskatalog und
+                                    Material-Preislisten definieren. FUENEX nutzt diese Daten, um bei der Raumplanung
+                                    automatisch die passenden Preise für Fliesen, Kleber, Fugenmörtel und Arbeitszeiten
+                                    zu berechnen.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
