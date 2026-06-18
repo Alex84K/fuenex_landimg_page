@@ -11,302 +11,57 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Google Fonts (Inter) -->
     <!-- Google Fonts (Inter для текста + Michroma для логотипа) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&display=swap"
         rel="stylesheet">
-
-    <style>
-        :root {
-            --primary-color: #001C66;
-            /* Темно-синий бренд-цвет */
-            --accent-color: #0d6efd;
-            --text-dark: #1e293b;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            background-color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Навигация */
-        .navbar {
-            padding: 1.2rem 0;
-            background-color: #ffffff;
-            position: relative;
-            z-index: 10;
-        }
-
-        .navbar-brand .brand-logo {
-            font-weight: 800;
-            font-size: 1.6rem;
-            letter-spacing: 2px;
-            color: var(--primary-color);
-            line-height: 1;
-        }
-
-        .navbar-brand .brand-sub {
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: #64748b;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        /* --- СТИЛИЗАЦИЯ ЛОГОТИПА ШРИФТОМ MICHROMA --- */
-        .brand-logo {
-            font-family: 'Michroma', sans-serif;
-            font-size: 1.4rem;
-            /* Шрифт Michroma довольно широкий, поэтому 1.4rem — оптимальный размер */
-            letter-spacing: 1px;
-            color: var(--primary-color);
-            line-height: 1;
-            text-transform: uppercase;
-            display: inline-block;
-        }
-
-        .brand-sub {
-            font-size: 0.65rem;
-            font-weight: 300;
-            color: #64748b;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        /* --- ПЕРВЫЙ ЭКРАН (HERO) НА ВЕСЬ ЭКРАН --- */
-        .hero-section {
-            position: relative;
-            width: 100%;
-            /* Минимальная высота блока */
-            min-height: 850px;
-            display: flex;
-            align-items: center;
-            /* Картинка на весь фон + градиент для читаемости текста */
-            background-image:
-                linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 45%, rgba(255, 255, 255, 0) 80%),
-                url('fuenex_main.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        /* Мобильная версия первого экрана */
-        @media (max-width: 991px) {
-            .hero-section {
-                padding: 4rem 0 10rem 0;
-                /* На мобильных градиент идет сверху вниз, чтобы текст читался, а внизу была видна картинка */
-                background-image:
-                    linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%),
-                    url('fuenex_main.jpg');
-                background-position: center right;
-            }
-        }
-
-        .hero-title {
-            font-weight: 500;
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (max-width: 991px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: #475569;
-            margin-bottom: 2.5rem;
-            font-weight: 500;
-        }
-
-        /* Кнопки */
-        .btn-custom-primary {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            font-weight: 600;
-            padding: 0.8rem 1.8rem;
-            border-radius: 6px;
-            border: 2px solid var(--primary-color);
-            transition: all 0.2s ease-in-out;
-            text-decoration: none;
-        }
-
-        .btn-custom-primary:hover {
-            background-color: #001242;
-            border-color: #001242;
-            color: #ffffff;
-        }
-
-        .btn-custom-outline {
-            background-color: transparent;
-            color: var(--primary-color);
-            font-weight: 600;
-            padding: 0.8rem 1.8rem;
-            border-radius: 6px;
-            border: 2px solid var(--primary-color);
-            transition: all 0.2s ease-in-out;
-            text-decoration: none;
-        }
-
-        .btn-custom-outline:hover {
-            background-color: var(--primary-color);
-            color: #ffffff;
-        }
-
-        /* --- БЛОК ПРОЦЕССА (Шаги 1-4) --- */
-        .process-section {
-            padding: 5rem 0;
-            background-color: #ffffff;
-            border-top: 1px solid #f1f5f9;
-        }
-
-        .step-container {
-            text-align: center;
-            position: relative;
-        }
-
-        @media (min-width: 992px) {
-            .step-container:not(:last-child)::after {
-                content: '';
-                position: absolute;
-                top: 25%;
-                right: -15%;
-                width: 30%;
-                height: 2px;
-                border-top: 2px dashed #cbd5e1;
-                z-index: 1;
-            }
-        }
-
-        .step-icon-wrapper {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #ffffff;
-            z-index: 2;
-            position: relative;
-        }
-
-        /* --- УНИВЕРСАЛЬНЫЙ ЦВЕТ И РАЗМЕР ДЛЯ ИКОНОК --- */
-        .step-icon-wrapper svg {
-            width: 50px;
-            height: 50px;
-        }
-
-        /* Окрашивание для иконок с заливкой (Font Awesome - Шаги 1, 2, 4) */
-        .step-icon-wrapper svg path {
-            fill: var(--primary-color);
-        }
-
-        /* Окрашивание для контурных иконок (Шаг 3) */
-        .step-icon-wrapper svg[stroke="currentColor"] {
-            stroke: var(--primary-color) !important;
-        }
-
-        .step-icon-wrapper svg[stroke="currentColor"] path {
-            stroke: var(--primary-color) !important;
-            fill: none !important;
-            /* Отменяем заливку для контурных иконок */
-        }
-
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            background-color: #e2e8f0;
-            color: var(--primary-color);
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .step-text {
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--text-dark);
-        }
-
-        /* --- ВТОРАЯ СЕКЦИЯ (CTA ПЕРЕД ПОДВАЛОМ) НА ВЕСЬ ЭКРАН --- */
-        .cta-section {
-            position: relative;
-            width: 100%;
-            min-height: 550px;
-            padding: 6rem 0;
-            display: flex;
-            align-items: center;
-            /* Картинка плитки на весь фон */
-            background-image:
-                linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 45%, rgba(255, 255, 255, 0) 100%),
-                url('fuenex_befor_footer.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .button_contact_us {
-            background-color: #dbdbdb;
-        }
-
-        /* Мобильная версия второй секции */
-        @media (max-width: 991px) {
-            .cta-section {
-                padding: 4rem 0 10rem 0;
-                background-image:
-                    linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%),
-                    url('fuenex_befor_footer.jpg');
-                background-position: center;
-            }
-        }
-
-        .cta-title {
-            font-weight: 700;
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            line-height: 1.3;
-            margin-bottom: 2rem;
-        }
-
-        /* Подвал */
-        footer {
-            padding: 3rem 0;
-            background-color: #ffffff;
-            border-top: 1px solid #e2e8f0;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- Навигация -->
-    <nav class="navbar navbar-expand-lg">
+    <!-- Навигация (Закрепленная адаптивная шапка) -->
+    <nav class="navbar navbar-expand-lg sticky-navbar">
         <div class="container">
-            <a class="navbar-brand d-flex flex-column align-items-start" href="#">
+            <!-- Логотип -->
+            <a class="navbar-brand d-flex flex-column align-items-start" href="#home">
                 <span class="brand-logo">FUENEX</span>
                 <span class="brand-sub">Digital Solutions for the Future</span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+            <!-- Мобильная кнопка-гамбургер -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Меню навигации -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2 pt-3 pt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Startseite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#funktionen">Funktionen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ueber-uns">Über uns</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="https://home-build.smartsoftsystem.de"
+                            class="btn btn-custom-primary btn-sm py-2 px-3 w-100 w-lg-auto text-white">
+                            Kostenlos testen
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <!-- Первый экран (Hero) - Картинка на фоне, текст поверх -->
-    <header class="hero-section">
+    <header class="hero-section" id="home">
         <div class="container">
             <div class="row">
                 <!-- Текст занимает 5 колонок из 12 на больших экранах, оставляя правую часть картинки открытой -->
@@ -328,7 +83,7 @@
     </header>
 
     <!-- Блок процесса (Шаги 1-4) -->
-    <section class="process-section">
+    <section class="process-section" id="funktionen">
         <div class="container">
             <div class="row g-4 justify-content-center">
 
@@ -350,8 +105,7 @@
                 <div class="col-6 col-lg-3">
                     <div class="step-container">
                         <div class="step-icon-wrapper">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                 <path
                                     d="M314.6 142.1C322.6 114.8 347.6 96 376 96L576 96C593.7 96 608 110.3 608 128C608 145.7 593.7 160 576 160L376 160L270.7 521C267.1 533.3 256.6 542.2 243.9 543.8C231.2 545.4 218.8 539.2 212.4 528.2L109.6 352L64 352C46.3 352 32 337.7 32 320C32 302.3 46.3 288 64 288L109.6 288C132.4 288 153.4 300.1 164.9 319.8L230.1 431.6L314.5 142.1zM425.4 297.4C437.9 284.9 458.2 284.9 470.7 297.4L512.1 338.8L553.5 297.4C566 284.9 586.3 284.9 598.8 297.4C611.3 309.9 611.3 330.2 598.8 342.7L557.4 384.1L598.8 425.5C611.3 438 611.3 458.3 598.8 470.8C586.3 483.3 566 483.3 553.5 470.8L512.1 429.4L470.7 470.8C458.2 483.3 437.9 483.3 425.4 470.8C412.9 458.3 412.9 438 425.4 425.5L466.8 384.1L425.4 342.7C412.9 330.2 412.9 309.9 425.4 297.4z" />
                             </svg>
@@ -365,7 +119,7 @@
                 <div class="col-6 col-lg-3">
                     <div class="step-container">
                         <div class="step-icon-wrapper">
-                            <!-- SVG иконка слоев материала (использует stroke) -->
+                            <!-- SVG иконка слоев материала -->
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
@@ -394,6 +148,74 @@
         </div>
     </section>
 
+    <!-- Секция "Über uns" (О нас) -->
+    <section class="about-section py-5" style="background-color: #f8fafc;" id="ueber-uns">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <span class="text-uppercase fw-bold"
+                        style="font-size: 0.8rem; letter-spacing: 1.5px; color: #001C66;">Über uns</span>
+                    <h2 class="mt-2 fw-bold" style="color: #001C66; font-size: 2.25rem;">Digitale Präzision für echtes
+                        Handwerk</h2>
+                    <p class="text-muted mt-3" style="font-size: 1.1rem; line-height: 1.6;">
+                        Wir glauben, dass erstklassige Arbeit auf der Baustelle auch erstklassige Werkzeuge im Büro
+                        verdient.
+                        FUENEX wurde gegründet, um Fliesenleger und Handwerksbetriebe von zeitfressender Bürokratie zu
+                        befreien.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Карточка 1: Фокус на плиточниках -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4" style="border-radius: 16px;">
+                        <div class="mb-3 d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px; background-color: rgba(0, 28, 102, 0.08); border-radius: 12px;">
+                            <i class="bi bi-tag" style="font-size: 1.5rem; color: #001C66;"></i>
+                        </div>
+                        <h4 class="fw-bold h5 mb-3" style="color: #001C66;">Fokus auf Ihr Gewerk</h4>
+                        <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.5;">
+                            Keine komplizierte "All-in-One"-Software. Wir verstehen Fliesenleger – von exakten
+                            Verschnittfaktoren bis zur präzisen Kalkulation von Kleber, Fugenmörtel und Fliesenformaten.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Карточка 2: Соответствие законам (E-Rechnung) -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4" style="border-radius: 16px;">
+                        <div class="mb-3 d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px; background-color: rgba(0, 28, 102, 0.08); border-radius: 12px;">
+                            <i class="bi bi-file-earmark-check" style="font-size: 1.5rem; color: #001C66;"></i>
+                        </div>
+                        <h4 class="fw-bold h5 mb-3" style="color: #001C66;">Zukunftssicher & Konform</h4>
+                        <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.5;">
+                            Erfüllen Sie mühelos die neuen gesetzlichen Anforderungen ab 2025. FUENEX generiert konforme
+                            E-Rechnungen (XRechnung / ZUGFeRD) ganz ohne zusätzliche externe Systeme.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Карточка 3: Безопасность и серверы в Германии -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4" style="border-radius: 16px;">
+                        <div class="mb-3 d-flex align-items-center justify-content-center"
+                            style="width: 50px; height: 50px; background-color: rgba(0, 28, 102, 0.08); border-radius: 12px;">
+                            <i class="bi bi-shield-lock" style="font-size: 1.5rem; color: #001C66;"></i>
+                        </div>
+                        <h4 class="fw-bold h5 mb-3" style="color: #001C66;">Sicherheit & Hosting in DE</h4>
+                        <p class="text-muted mb-0" style="font-size: 0.95rem; line-height: 1.5;">
+                            Ihre Daten und Kalkulationen sind sicher. Wir garantieren strikte Einhaltung der
+                            DSGVO-Richtlinien. Alle Kundendaten liegen vollständig isoliert auf hochsicheren Servern in
+                            Deutschland.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Секция CTA - Картинка на фоне, текст поверх -->
     <section class="cta-section">
         <div class="container">
@@ -417,7 +239,6 @@
                 <span class="brand-sub"
                     style="font-size: 0.6rem; letter-spacing: 0.5px; text-transform: uppercase; color: #64748b;">Digital
                     Solutions for the Future</span>
-                <!--p class="mt-4 mb-0 text-muted" style="font-size: 0.85rem;">&copy; 2026 FUENEX. Alle Rechte vorbehalten.</p-->
             </div>
         </div>
     </footer>
