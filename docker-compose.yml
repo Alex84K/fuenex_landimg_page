@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  landing-page:
+    container_name: fuenex_landing
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5502:80"  # Внешний порт 80 будет перенаправлять на 80 порт контейнера
+    restart: always
