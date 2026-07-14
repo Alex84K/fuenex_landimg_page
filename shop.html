@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | FUENEX – Materialien & Zubehör</title>
+    <meta name="description" content="FUENEX Shop – Materialien, Zubehör und Lizenzen für Fliesenleger. Demnächst verfügbar.">
+    <link rel="canonical" href="https://fuenex.de/shop">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23001C66%22/><text y=%2272%22 x=%2227%22 font-family=%22Inter, sans-serif%22 font-size=%2265%22 font-weight=%22800%22 fill=%22%23FFFFFF%22>F</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+        .sticky-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        }
+        .navbar-nav .nav-link {
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus,
+        .navbar-nav .nav-link.active {
+            color: #001C66;
+        }
+        .shop-hero {
+            padding: 6rem 0 5rem;
+            background-color: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .coming-soon-badge {
+            display: inline-block;
+            background-color: rgba(0, 28, 102, 0.08);
+            color: #001C66;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+        .shop-icon-circle {
+            width: 90px;
+            height: 90px;
+            background-color: rgba(0, 28, 102, 0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+        .category-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+            background-color: #ffffff;
+            height: 100%;
+        }
+        .category-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 28, 102, 0.08);
+            border-color: #001C66;
+        }
+        .category-card .icon-wrap {
+            width: 56px;
+            height: 56px;
+            background-color: rgba(0, 28, 102, 0.07);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+        .notify-section {
+            background-color: #001C66;
+            padding: 4rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex flex-column align-items-start" href="index.html">
+                <span class="brand-logo">FUENEX</span>
+                <span class="brand-sub">Digital Solutions for the Future</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2 pt-3 pt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Startseite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#funktionen">Funktionen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#ueber-uns">Über uns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="https://home-build.smartsoftsystem.de"
+                            class="btn btn-custom-primary btn-sm py-2 px-3 w-100 w-lg-auto text-white">
+                            Kostenlos testen
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="shop-hero text-center">
+        <div class="container">
+            <div class="shop-icon-circle">
+                <i class="bi bi-bag" style="font-size: 2.2rem; color: #001C66;"></i>
+            </div>
+            <span class="coming-soon-badge">Demnächst verfügbar</span>
+            <h1 class="fw-bold mb-3" style="color: #001C66; font-size: 2.5rem;">FUENEX Shop</h1>
+            <p class="text-muted mx-auto" style="max-width: 560px; font-size: 1.1rem; line-height: 1.7;">
+                Hier finden Sie bald alles, was Ihren Fliesenleger-Betrieb effizienter macht –
+                Lizenzen, Vorlagen und ausgewähltes Profi-Zubehör.
+            </p>
+        </div>
+    </section>
+
+    <!-- Категории-заглушки -->
+    <section class="py-5" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center">
+                    <h2 class="fw-bold" style="color: #001C66; font-size: 1.75rem;">Was Sie erwartet</h2>
+                    <p class="text-muted mt-2">Unser Shop wird in Kürze mit folgenden Kategorien verfügbar sein.</p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-card">
+                        <div class="icon-wrap">
+                            <i class="bi bi-key" style="font-size: 1.5rem; color: #001C66;"></i>
+                        </div>
+                        <h3 class="fw-bold h5 mb-2" style="color: #001C66;">Lizenzen & Abos</h3>
+                        <p class="text-muted mb-0" style="font-size: 0.9rem; line-height: 1.5;">
+                            Flexible Laufzeiten für Einzelunternehmer und Betriebe – monatlich oder jährlich.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-card">
+                        <div class="icon-wrap">
+                            <i class="bi bi-file-earmark-text" style="font-size: 1.5rem; color: #001C66;"></i>
+                        </div>
+                        <h3 class="fw-bold h5 mb-2" style="color: #001C66;">Vorlagen & Dokumente</h3>
+                        <p class="text-muted mb-0" style="font-size: 0.9rem; line-height: 1.5;">
+                            Professionelle Angebots- und Rechnungsvorlagen, rechtssicher und sofort einsatzbereit.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="category-card">
+                        <div class="icon-wrap">
+                            <i class="bi bi-box-seam" style="font-size: 1.5rem; color: #001C66;"></i>
+                        </div>
+                        <h3 class="fw-bold h5 mb-2" style="color: #001C66;">Zubehör & Equipment</h3>
+                        <p class="text-muted mb-0" style="font-size: 0.9rem; line-height: 1.5;">
+                            Ausgewähltes Profi-Zubehör für die tägliche Arbeit auf der Baustelle.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок уведомления -->
+    <section class="notify-section">
+        <div class="container text-center">
+            <h2 class="fw-bold text-white mb-3" style="font-size: 1.75rem;">Benachrichtigt werden</h2>
+            <p class="mb-4" style="color: rgba(255,255,255,0.75); font-size: 1rem;">
+                Schreiben Sie uns – wir informieren Sie, sobald der Shop verfügbar ist.
+            </p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fuenex.info@gmail.de&su=Shop+Benachrichtigung"
+                target="_blank" class="btn btn-light fw-semibold px-4 py-2" style="border-radius: 6px; color: #001C66;">
+                <i class="bi bi-envelope me-2"></i>Kontakt aufnehmen
+            </a>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center mb-3">
+                <span class="brand-logo"
+                    style="font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--primary-color);">FUENEX</span>
+                <span class="brand-sub"
+                    style="font-size: 0.6rem; letter-spacing: 0.5px; text-transform: uppercase; color: #64748b;">Digital
+                    Solutions for the Future</span>
+            </div>
+            <div class="d-flex justify-content-center gap-4">
+                <a href="index.html" class="text-muted small text-decoration-none" style="font-size: 0.85rem;">Startseite</a>
+                <a href="datenschutz.html" class="text-muted small text-decoration-none" style="font-size: 0.85rem;">Datenschutz</a>
+                <a href="shop.html" class="text-muted small text-decoration-none" style="font-size: 0.85rem; color: #001C66 !important;">Shop</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

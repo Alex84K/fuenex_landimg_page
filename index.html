@@ -153,6 +153,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#ueber-uns">Über uns</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
                     <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
                         <a href="https://home-build.smartsoftsystem.de"
                             class="btn btn-custom-primary btn-sm py-2 px-3 w-100 w-lg-auto text-white">
@@ -176,10 +179,10 @@
                         <a href="https://home-build.smartsoftsystem.de" class="btn btn-custom-primary">
                             Kostenlos testen <i class="bi bi-chevron-right ms-1"></i>
                         </a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=fuenex.info@gmail.de" target="_blank"
-                            class="btn btn-custom-outline button_contact_us">
+                        <button type="button" class="btn btn-custom-outline button_contact_us"
+                            data-bs-toggle="modal" data-bs-target="#contactModal">
                             Kontakt <i class="bi bi-chevron-right ms-1"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -438,18 +441,117 @@
     <!-- Подвал -->
     <footer class="text-center">
         <div class="container">
-            <div class="d-flex flex-column align-items-center">
+            <div class="d-flex flex-column align-items-center mb-3">
                 <span class="brand-logo"
                     style="font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--primary-color);">FUENEX</span>
                 <span class="brand-sub"
                     style="font-size: 0.6rem; letter-spacing: 0.5px; text-transform: uppercase; color: #64748b;">Digital
                     Solutions for the Future</span>
             </div>
+            <div class="d-flex justify-content-center gap-4">
+                <a href="index.html" class="text-muted small text-decoration-none" style="font-size: 0.85rem;">Startseite</a>
+                <a href="datenschutz.html" class="text-muted small text-decoration-none" style="font-size: 0.85rem;">Datenschutz</a>
+                <a href="shop.html" class="text-muted small text-decoration-none" style="font-size: 0.85rem;">Shop</a>
+            </div>
         </div>
     </footer>
 
+    <!-- Kontakt-Formular (Modal) -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="contactModalLabel" style="color: #001C66;">Kontakt aufnehmen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <p class="text-muted small mb-3">Schreiben Sie uns – wir melden uns schnellstmöglich zurück.</p>
+                    <form id="contactForm" novalidate>
+                        <div class="mb-3">
+                            <label for="cf-name" class="form-label small fw-semibold">Name</label>
+                            <input type="text" class="form-control" id="cf-name" name="name" maxlength="100" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cf-email" class="form-label small fw-semibold">E-Mail</label>
+                            <input type="email" class="form-control" id="cf-email" name="email" maxlength="150" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cf-message" class="form-label small fw-semibold">Nachricht</label>
+                            <textarea class="form-control" id="cf-message" name="message" rows="4" minlength="5"
+                                maxlength="2000" required></textarea>
+                        </div>
+                        <!-- Honeypot: für Menschen unsichtbar, nur Bots füllen es aus -->
+                        <div aria-hidden="true" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
+                            <label>Website (bitte leer lassen)
+                                <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off">
+                            </label>
+                        </div>
+                        <div id="cf-status" class="small mb-3" role="status" aria-live="polite"></div>
+                        <button type="submit" id="cf-submit" class="btn btn-custom-primary w-100">
+                            Nachricht senden <i class="bi bi-send ms-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Kontaktformular -> Backend-Proxy (API-Key bleibt serverseitig) -->
+    <script>
+        (function () {
+            // Backend-Basis-URL. Lokal automatisch localhost, sonst Produktions-Backend.
+            var isLocal = ['localhost', '127.0.0.1'].indexOf(location.hostname) !== -1;
+            var API_BASE = isLocal ? 'http://localhost:8083' : 'https://home-build.smartsoftsystem.de';
+            var ENDPOINT = API_BASE + '/api/v1/feedback';
+
+            var form = document.getElementById('contactForm');
+            var statusEl = document.getElementById('cf-status');
+            var submitBtn = document.getElementById('cf-submit');
+
+            function setStatus(msg, type) {
+                statusEl.textContent = msg;
+                statusEl.className = 'small mb-3 ' + (type === 'error' ? 'text-danger' : 'text-success');
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+                setStatus('', '');
+                submitBtn.disabled = true;
+
+                var payload = {
+                    name: document.getElementById('cf-name').value.trim(),
+                    email: document.getElementById('cf-email').value.trim(),
+                    message: document.getElementById('cf-message').value.trim(),
+                    website: document.getElementById('cf-website').value // Honeypot
+                };
+
+                try {
+                    var res = await fetch(ENDPOINT, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (res.ok) {
+                        setStatus('Vielen Dank! Ihre Nachricht wurde gesendet.', 'success');
+                        form.reset();
+                    } else {
+                        setStatus('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.', 'error');
+                    }
+                } catch (err) {
+                    setStatus('Verbindung fehlgeschlagen. Bitte versuchen Sie es später erneut.', 'error');
+                } finally {
+                    submitBtn.disabled = false;
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
