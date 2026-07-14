@@ -504,7 +504,7 @@
         (function () {
             // Backend-Basis-URL. Lokal automatisch localhost, sonst Produktions-Backend.
             var isLocal = ['localhost', '127.0.0.1'].indexOf(location.hostname) !== -1;
-            var API_BASE = isLocal ? 'http://localhost:8083' : 'https://home-build.smartsoftsystem.de';
+            var API_BASE = isLocal ? 'http://localhost:8083' : 'https://home-build-server.shk.solutions';
             var ENDPOINT = API_BASE + '/api/v1/feedback';
 
             var form = document.getElementById('contactForm');
