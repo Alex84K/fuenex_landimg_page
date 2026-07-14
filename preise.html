@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preise | FUENEX – Tarife für Fliesenleger-Betriebe</title>
+    <meta name="description" content="FUENEX Preise & Tarife – flexible Abonnements für Fliesenleger-Betriebe jeder Größe. Kostenlos testen, ohne Kreditkarte.">
+    <link rel="canonical" href="https://fuenex.de/preise">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23001C66%22/><text y=%2272%22 x=%2227%22 font-family=%22Inter, sans-serif%22 font-size=%2265%22 font-weight=%22800%22 fill=%22%23FFFFFF%22>F</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        .sticky-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .navbar-nav .nav-link {
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus,
+        .navbar-nav .nav-link.active {
+            color: #001C66;
+        }
+
+        .preise-hero {
+            padding: 5rem 0 4rem;
+            background-color: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .plan-card {
+            border: 1.5px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 2.25rem 2rem;
+            background-color: #ffffff;
+            height: 100%;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 28, 102, 0.09);
+            border-color: #001C66;
+        }
+
+        .plan-card.plan-featured {
+            border-color: #001C66;
+            background-color: #001C66;
+            color: #ffffff;
+        }
+
+        .plan-card.plan-featured .plan-name,
+        .plan-card.plan-featured .plan-price,
+        .plan-card.plan-featured .plan-period,
+        .plan-card.plan-featured .feature-item {
+            color: #ffffff;
+        }
+
+        .plan-card.plan-featured .plan-description {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .plan-card.plan-featured .feature-item .bi-check-circle-fill {
+            color: #7dd3fc;
+        }
+
+        .plan-card.plan-featured .divider-line {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .plan-badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .plan-card.plan-featured .plan-badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .plan-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #001C66;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #001C66;
+            line-height: 1.1;
+        }
+
+        .plan-period {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 0;
+        }
+
+        .plan-description {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.55;
+            margin-bottom: 0;
+        }
+
+        .divider-line {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 1.5rem 0;
+        }
+
+        .feature-item {
+            font-size: 0.9rem;
+            color: #334155;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .feature-item .bi-check-circle-fill {
+            color: #001C66;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .feature-item .bi-dash-circle {
+            color: #cbd5e1;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .plan-cta {
+            margin-top: auto;
+            padding-top: 1.75rem;
+        }
+
+        .btn-plan-primary {
+            background-color: #ffffff;
+            color: #001C66;
+            border: 2px solid #ffffff;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 0.6rem 1.25rem;
+            transition: background-color 0.2s, color 0.2s;
+            width: 100%;
+        }
+
+        .btn-plan-primary:hover {
+            background-color: #e0f2fe;
+            border-color: #e0f2fe;
+            color: #001C66;
+        }
+
+        .btn-plan-outline {
+            background-color: transparent;
+            color: #001C66;
+            border: 2px solid #001C66;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 0.6rem 1.25rem;
+            transition: background-color 0.2s, color 0.2s;
+            width: 100%;
+        }
+
+        .btn-plan-outline:hover {
+            background-color: #001C66;
+            color: #ffffff;
+        }
+
+        .note-text {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            margin-top: 0.6rem;
+            text-align: center;
+        }
+
+        #datenschutzModal { z-index: 1065; }
+
+        .faq-tag {
+            display: inline-block;
+            background-color: rgba(0, 28, 102, 0.07);
+            color: #001C66;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0.25rem 0.85rem;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex flex-column align-items-start" href="index.html">
+                <span class="brand-logo">FUENEX</span>
+                <span class="brand-sub">Digital Solutions for the Future</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2 pt-3 pt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Startseite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#funktionen">Funktionen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#ueber-uns">Über uns</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="preise.html">Preise</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="https://home-build.smartsoftsystem.de"
+                            class="btn btn-custom-primary btn-sm py-2 px-3 w-100 w-lg-auto text-white">
+                            Kostenlos testen
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="preise-hero text-center">
+        <div class="container">
+            <span class="faq-tag">Transparente Preise</span>
+            <h1 class="fw-bold mb-3" style="color: #001C66; font-size: 2.5rem;">
+                Der richtige Plan für Ihren Betrieb
+            </h1>
+            <p class="text-muted mx-auto" style="max-width: 560px; font-size: 1.05rem; line-height: 1.7;">
+                Starten Sie kostenlos – ohne Kreditkarte, ohne Bindung.
+                Wechseln Sie jederzeit, wenn Ihr Betrieb wächst.
+            </p>
+        </div>
+    </section>
+
+    <!-- Тарифные карточки -->
+    <section class="py-5" style="background-color: #ffffff;">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+
+                <!-- BASIC -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="plan-card">
+                        <div class="plan-badge">Basic</div>
+                        <div class="plan-name">Einstieg</div>
+                        <div class="d-flex align-items-baseline gap-1 mb-1">
+                            <span class="plan-price">Kostenlos</span>
+                        </div>
+                        <p class="plan-period mb-3">Keine Kreditkarte erforderlich</p>
+                        <p class="plan-description">
+                            Ideal für Einzelunternehmer und Betriebe, die FUENEX kennenlernen möchten.
+                        </p>
+                        <hr class="divider-line">
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Projekte & Kundenverwaltung</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Manueller Raumerfassung & Kalkulation</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>PDF-Angebotserstellung</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>1 Benutzer</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-dash-circle"></i>
+                            <span style="color: #94a3b8;">3D-LiDAR-Aufmaß (iPhone)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-dash-circle"></i>
+                            <span style="color: #94a3b8;">Simulationsansicht (Web)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-dash-circle"></i>
+                            <span style="color: #94a3b8;">E-Rechnung (XRechnung/ZUGFeRD)</span>
+                        </div>
+                        <div class="plan-cta">
+                            <button type="button" class="btn btn-plan-outline"
+                                data-bs-toggle="modal" data-bs-target="#supportModal"
+                                data-plan="Basic"
+                                data-plan-message="Ich interessiere mich für den Basic-Plan und möchte mehr erfahren.">
+                                Jetzt kostenlos starten
+                            </button>
+                            <p class="note-text">Kein Abo, keine Kreditkarte</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PREMIUM (featured) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="plan-card plan-featured">
+                        <div class="plan-badge">Premium</div>
+                        <div class="plan-name">Professional</div>
+                        <div class="d-flex align-items-baseline gap-1 mb-1">
+                            <span class="plan-price">Auf Anfrage</span>
+                        </div>
+                        <p class="plan-period mb-3">monatlich oder jährlich</p>
+                        <p class="plan-description">
+                            Für aktive Betriebe, die den vollen Workflow – von der Baustelle bis zur Rechnung – digital abwickeln.
+                        </p>
+                        <hr class="divider-line">
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Alles aus Basic</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>3D-LiDAR-Aufmaß (iPhone 12 Pro+)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Simulationsansicht im Web-Browser</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>E-Rechnung (XRechnung / ZUGFeRD)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Eigene Preislisten & Leistungskatalog</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Bis zu 5 Benutzer</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>E-Mail-Support mit Priorität</span>
+                        </div>
+                        <div class="plan-cta">
+                            <button type="button" class="btn btn-plan-primary"
+                                data-bs-toggle="modal" data-bs-target="#supportModal"
+                                data-plan="Premium"
+                                data-plan-message="Ich interessiere mich für den Premium-Plan (Professional) und möchte mehr erfahren.">
+                                Mehr erfahren
+                            </button>
+                            <p class="note-text" style="color: rgba(255,255,255,0.5);">Wir melden uns innerhalb von 24 h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENTERPRISE -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="plan-card">
+                        <div class="plan-badge">Enterprise</div>
+                        <div class="plan-name">Unternehmen</div>
+                        <div class="d-flex align-items-baseline gap-1 mb-1">
+                            <span class="plan-price">Individuell</span>
+                        </div>
+                        <p class="plan-period mb-3">Angebot auf Anfrage</p>
+                        <p class="plan-description">
+                            Für Betriebe mit mehreren Teams, eigenem Branding und erweiterten Integrationsbedürfnissen.
+                        </p>
+                        <hr class="divider-line">
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Alles aus Premium</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Unbegrenzte Benutzer</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Lexoffice / DATEV-Integration</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Dedizierter Account-Manager</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Individuelles Onboarding</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>SLA & erweiterter Support</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="bi bi-dash-circle"></i>
+                            <span style="color: #94a3b8;">Ab 6+ Benutzer, individuelle Preisgestaltung</span>
+                        </div>
+                        <div class="plan-cta">
+                            <button type="button" class="btn btn-plan-outline"
+                                data-bs-toggle="modal" data-bs-target="#supportModal"
+                                data-plan="Enterprise"
+                                data-plan-message="Ich interessiere mich für den Enterprise-Plan und möchte ein individuelles Angebot erhalten.">
+                                Kontakt aufnehmen
+                            </button>
+                            <p class="note-text">Wir melden uns innerhalb von 24 h</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Hinweis unter Karten -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8 text-center">
+                    <p class="text-muted" style="font-size: 0.9rem; line-height: 1.6;">
+                        Alle Preise zzgl. MwSt. · Jederzeit kündbar · Daten liegen auf Servern in Deutschland (DSGVO-konform)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ mini -->
+    <section class="py-5" style="background-color: #f8fafc;">
+        <div class="container">
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-7 text-center">
+                    <h2 class="fw-bold" style="color: #001C66; font-size: 1.75rem;">Häufige Fragen zu den Tarifen</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="accordion border-0" id="faqPricing">
+
+                        <div class="accordion-item border-0 border-bottom py-3">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold bg-transparent text-dark shadow-none ps-0"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
+                                    style="font-size: 1rem; color: #001C66 !important;">
+                                    Brauche ich eine Kreditkarte, um kostenlos zu testen?
+                                </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqPricing">
+                                <div class="accordion-body ps-0 text-muted" style="font-size: 0.9rem; line-height: 1.6;">
+                                    Nein. Sie können sich mit E-Mail und Passwort registrieren und sofort loslegen –
+                                    ohne Zahlungsdaten, ohne Bindung.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border-0 border-bottom py-3">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold bg-transparent text-dark shadow-none ps-0"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
+                                    style="font-size: 1rem; color: #001C66 !important;">
+                                    Kann ich jederzeit kündigen oder den Plan wechseln?
+                                </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqPricing">
+                                <div class="accordion-body ps-0 text-muted" style="font-size: 0.9rem; line-height: 1.6;">
+                                    Ja. Alle Abonnements sind monatlich kündbar. Ein Upgrade oder Downgrade ist
+                                    jederzeit im Firmenprofil möglich – ohne Mehrkosten oder Wartezeit.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item border-0 py-3">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold bg-transparent text-dark shadow-none ps-0"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
+                                    style="font-size: 1rem; color: #001C66 !important;">
+                                    Wo werden meine Daten gespeichert?
+                                </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqPricing">
+                                <div class="accordion-body ps-0 text-muted" style="font-size: 0.9rem; line-height: 1.6;">
+                                    Alle Kundendaten liegen auf hochsicheren Servern in Deutschland und werden
+                                    vollständig DSGVO-konform verarbeitet. Jedes Unternehmen hat einen isolierten
+                                    Datenspeicher – andere Firmen haben keinen Zugriff auf Ihre Daten.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center mb-3">
+                <span class="brand-logo"
+                    style="font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--primary-color);">FUENEX</span>
+                <span class="brand-sub"
+                    style="font-size: 0.6rem; letter-spacing: 0.5px; text-transform: uppercase; color: #64748b;">Digital
+                    Solutions for the Future</span>
+            </div>
+            <div class="d-flex justify-content-center gap-4">
+                <a href="index.html" class="text-muted small text-decoration-none" style="font-size: 0.85rem;">Startseite</a>
+                <a href="datenschutz.html" class="text-muted small text-decoration-none" style="font-size: 0.85rem;">Datenschutz</a>
+                <a href="preise.html" class="text-muted small text-decoration-none" style="font-size: 0.85rem; color: #001C66 !important;">Preise</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('datenschutzModal').addEventListener('hidden.bs.modal', function () {
+            if (document.querySelector('.modal.show')) {
+                document.body.classList.add('modal-open');
+            }
+        });
+    </script>
+
+    <!-- Support Modal -->
+    <div class="modal fade" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
+                <div class="modal-header border-0 pb-0">
+                    <div>
+                        <h5 class="modal-title fw-bold" id="supportModalLabel" style="color: #001C66;">Anfrage stellen</h5>
+                        <p id="support-plan-hint" class="text-muted small mb-0" style="font-size: 0.8rem;"></p>
+                    </div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Schließen"></button>
+                </div>
+                <div class="modal-body pt-2">
+                    <p class="text-muted small mb-3">Schreiben Sie uns – wir melden uns innerhalb von 24 Stunden zurück.</p>
+                    <form id="supportForm" novalidate>
+                        <div class="mb-3">
+                            <label for="sf-name" class="form-label small fw-semibold">Name</label>
+                            <input type="text" class="form-control" id="sf-name" name="name" maxlength="100" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sf-email" class="form-label small fw-semibold">E-Mail</label>
+                            <input type="email" class="form-control" id="sf-email" name="email" maxlength="150" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sf-message" class="form-label small fw-semibold">Nachricht</label>
+                            <textarea class="form-control" id="sf-message" name="message" rows="4" minlength="5"
+                                maxlength="2000" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="sf-consent" required>
+                                <label class="form-check-label small" for="sf-consent" style="line-height: 1.5; color: #475569;">
+                                    Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der
+                                    <button type="button"
+                                        class="btn btn-link p-0 d-inline align-baseline"
+                                        style="font-size: inherit; color: #001C66; text-decoration: underline; line-height: inherit; vertical-align: baseline;"
+                                        data-bs-toggle="modal" data-bs-target="#datenschutzModal">
+                                        Datenschutzerklärung
+                                    </button>
+                                    zu. *
+                                </label>
+                            </div>
+                        </div>
+                        <div aria-hidden="true" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
+                            <label>Website (bitte leer lassen)
+                                <input type="text" id="sf-website" name="website" tabindex="-1" autocomplete="off">
+                            </label>
+                        </div>
+                        <div id="sf-status" class="small mb-3" role="status" aria-live="polite"></div>
+                        <button type="submit" id="sf-submit" class="btn btn-custom-primary w-100">
+                            Nachricht senden <i class="bi bi-send ms-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Datenschutz Modal (вложенное, вызывается из #supportModal) -->
+    <div class="modal fade" id="datenschutzModal" tabindex="-1" aria-labelledby="datenschutzModalLabel" aria-hidden="true"
+        data-bs-backdrop="false" style="z-index: 1065;">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
+                <div class="modal-header border-0 pb-0">
+                    <div>
+                        <h5 class="modal-title fw-bold" id="datenschutzModalLabel" style="color: #001C66;">Datenschutzerklärung</h5>
+                        <p class="text-muted mb-0" style="font-size: 0.78rem;">Stand: Juli 2025 · Gemäß DSGVO, BDSG und TMG</p>
+                    </div>
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Schließen"></button>
+                </div>
+                <div class="modal-body" style="font-size: 0.875rem; line-height: 1.75; color: #475569;">
+                    <div class="alert alert-warning py-2 mb-3" style="font-size: 0.8rem; border-radius: 8px;">
+                        <i class="bi bi-info-circle me-1"></i>
+                        <strong>Hinweis:</strong> Dies ist eine vorläufige Datenschutzerklärung. Der finale, rechtlich geprüfte Text wird vor dem offiziellen Launch eingesetzt.
+                    </div>
+                    <h6 class="fw-bold mt-2" style="color: #001C66;">1. Verantwortlicher</h6>
+                    <p>Verantwortlicher im Sinne der DSGVO:<br>
+                    <strong>FUENEX</strong> · [Firmenname / Rechtsform] · [Anschrift], Deutschland<br>
+                    E-Mail: <a href="mailto:fuenex.info@gmail.com" style="color: #001C66;">fuenex.info@gmail.com</a></p>
+                    <h6 class="fw-bold mt-3" style="color: #001C66;">2. Erhebung personenbezogener Daten</h6>
+                    <p><strong>Beim Websitebesuch</strong> werden IP-Adresse, Datum/Uhrzeit, Browsertyp und aufgerufene URLs automatisch übertragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Löschung nach 7 Tagen.</p>
+                    <p><strong>Kontaktformular:</strong> Name, E-Mail-Adresse und Nachricht werden zur Bearbeitung Ihrer Anfrage gespeichert und nach Abschluss gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
+                    <p><strong>Registrierung:</strong> Name, Firmenname, E-Mail und Passwort (verschlüsselt) zur Vertragserfüllung gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
+                    <h6 class="fw-bold mt-3" style="color: #001C66;">3. Weitergabe an Dritte</h6>
+                    <p>Eine Weitergabe findet grundsätzlich nicht statt, außer zur Vertragserfüllung oder bei gesetzlicher Verpflichtung. Wir nutzen ausschließlich Rechenzentren in Deutschland (Art. 28 DSGVO).</p>
+                    <h6 class="fw-bold mt-3" style="color: #001C66;">4. Cookies</h6>
+                    <p>Wir setzen ausschließlich technisch notwendige Cookies ein (z. B. Sitzungsverwaltung). Analyse- oder Marketing-Cookies werden nicht verwendet.</p>
+                    <h6 class="fw-bold mt-3" style="color: #001C66;">5. Ihre Rechte</h6>
+                    <p>Gemäß DSGVO stehen Ihnen folgende Rechte zu: <strong>Auskunft</strong> (Art. 15), <strong>Berichtigung</strong> (Art. 16), <strong>Löschung</strong> (Art. 17), <strong>Einschränkung</strong> (Art. 18), <strong>Datenübertragbarkeit</strong> (Art. 20), <strong>Widerspruch</strong> (Art. 21).<br>
+                    Anfragen an: <a href="mailto:fuenex.info@gmail.com" style="color: #001C66;">fuenex.info@gmail.com</a></p>
+                    <h6 class="fw-bold mt-3" style="color: #001C66;">6. Datensicherheit</h6>
+                    <p>Alle Daten werden über TLS/SSL-verschlüsselte Verbindungen übertragen und auf gesicherten Servern in Deutschland gespeichert.</p>
+                    <h6 class="fw-bold mt-3" style="color: #001C66;">7. Aktualität</h6>
+                    <p class="mb-0">Diese Datenschutzerklärung kann bei Bedarf angepasst werden. Stand: Juli 2025.</p>
+                </div>
+                <div class="modal-footer border-0 pt-2">
+                    <button type="button" class="btn btn-custom-primary btn-sm px-4" data-bs-dismiss="modal">
+                        Verstanden &amp; schließen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            var isLocal = ['localhost', '127.0.0.1'].indexOf(location.hostname) !== -1;
+            var API_BASE = isLocal ? 'http://localhost:8083' : 'https://home-build-server.shk.solutions';
+            var ENDPOINT = API_BASE + '/api/v1/feedback';
+
+            var form = document.getElementById('supportForm');
+            var statusEl = document.getElementById('sf-status');
+            var submitBtn = document.getElementById('sf-submit');
+            var planHint = document.getElementById('support-plan-hint');
+            var messageField = document.getElementById('sf-message');
+
+            // Предзаполнение сообщения и подсказки при открытии модального окна
+            document.getElementById('supportModal').addEventListener('show.bs.modal', function (e) {
+                var trigger = e.relatedTarget;
+                if (!trigger) return;
+                var plan = trigger.getAttribute('data-plan') || '';
+                var msg = trigger.getAttribute('data-plan-message') || '';
+                planHint.textContent = plan ? 'Plan: ' + plan : '';
+                messageField.value = msg;
+                statusEl.textContent = '';
+                statusEl.className = 'small mb-3';
+                submitBtn.disabled = false;
+                form.classList.remove('was-validated');
+            });
+
+            function setStatus(msg, type) {
+                statusEl.textContent = msg;
+                statusEl.className = 'small mb-3 ' + (type === 'error' ? 'text-danger' : 'text-success');
+            }
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+                setStatus('', '');
+                submitBtn.disabled = true;
+
+                var payload = {
+                    name: document.getElementById('sf-name').value.trim(),
+                    email: document.getElementById('sf-email').value.trim(),
+                    message: (planHint.textContent ? '[' + planHint.textContent + '] ' : '') +
+                             document.getElementById('sf-message').value.trim(),
+                    website: document.getElementById('sf-website').value
+                };
+
+                try {
+                    var res = await fetch(ENDPOINT, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (res.ok) {
+                        setStatus('Vielen Dank! Ihre Nachricht wurde gesendet.', 'success');
+                        form.reset();
+                        planHint.textContent = '';
+                    } else {
+                        setStatus('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.', 'error');
+                    }
+                } catch (err) {
+                    setStatus('Verbindung fehlgeschlagen. Bitte versuchen Sie es später erneut.', 'error');
+                } finally {
+                    submitBtn.disabled = false;
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
