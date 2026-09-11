@@ -140,7 +140,7 @@ html {
     color: #ffffff;
     font-weight: 600;
     padding: 0.8rem 1.8rem;
-    border-radius: 6px;
+    border-radius: 50px;
     border: 2px solid var(--primary-color);
     transition: all 0.2s ease-in-out;
     text-decoration: none;
@@ -157,7 +157,7 @@ html {
     color: var(--primary-color);
     font-weight: 600;
     padding: 0.8rem 1.8rem;
-    border-radius: 6px;
+    border-radius: 50px;
     border: 2px solid var(--primary-color);
     transition: all 0.2s ease-in-out;
     text-decoration: none;
