@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erstellt mit FUENEX | Transparente Angebote für Handwerk & Bauherren</title>
+    <meta name="description"
+        content="Sie haben ein Angebot erhalten, das mit FUENEX erstellt wurde? Erfahren Sie, wie moderne Fliesenleger und Handwerker mit digitalem Aufmaß und transparenter Kalkulation arbeiten.">
+    <link rel="canonical" href="https://fuenex.de/r">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23001C66%22/><text y=%2272%22 x=%2227%22 font-family=%22Inter, sans-serif%22 font-size=%2265%22 font-weight=%22800%22 fill=%22%23FFFFFF%22>F</text></svg>">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        .sticky-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        .badge-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 50px;
+        }
+
+        .hero-offer-context {
+            padding: 4.5rem 0 3.5rem;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .feature-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            background-color: #ffffff;
+            height: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 28, 102, 0.07);
+        }
+
+        .craftsman-box {
+            background-color: #001C66;
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+        }
+
+        .cookie-consent-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border-top: 1px solid #cbd5e1;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+            padding: 1rem 1.5rem;
+            z-index: 2000;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg sticky-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex flex-column align-items-start" href="index.html">
+                <span class="brand-logo">FUENEX</span>
+                <span class="brand-sub">Digital Solutions for the Future</span>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2 pt-3 pt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Startseite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#funktionen">Funktionen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="preise.html">Preise</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a id="btn-nav-signup" href="https://home-build.smartsoftsystem.de"
+                            class="btn btn-custom-primary btn-sm py-2 px-3 w-100 w-lg-auto text-white">
+                            Kostenlos testen
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный контекстный блок: я увидел предложение -->
+    <header class="hero-offer-context">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <div class="mb-3">
+                        <span class="badge-verified">
+                            <i class="bi bi-patch-check-fill text-primary"></i> Erstellt mit FUENEX
+                        </span>
+                    </div>
+                    <h1 class="display-5 fw-bold mb-3" style="color: #001C66;">
+                        Sie haben ein Angebot erhalten, das mit FUENEX erstellt wurde?
+                    </h1>
+                    <p class="lead text-secondary mb-4" style="font-size: 1.15rem; line-height: 1.6;">
+                        Ihr Handwerksbetrieb setzt auf moderne Software: Das Angebot, das Sie in den Händen halten,
+                        wurde digital aufgemessen, transparent kalkuliert und nach höchsten Handwerksstandards erstellt.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a id="btn-hero-signup" href="https://home-build.smartsoftsystem.de" class="btn btn-custom-primary btn-lg">
+                            Als Handwerker kostenlos testen <i class="bi bi-chevron-right ms-1"></i>
+                        </a>
+                        <a href="#vorteile" class="btn btn-custom-outline btn-lg">
+                            Was bedeutet das für mich? <i class="bi bi-arrow-down ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="p-4 rounded-4 bg-white shadow-sm border">
+                        <h5 class="fw-bold mb-3 text-dark">
+                            <i class="bi bi-shield-check text-primary me-2"></i> Qualität & Verlässlichkeit
+                        </h5>
+                        <ul class="list-unstyled d-flex flex-column gap-3 mb-0 text-secondary" style="font-size: 0.95rem;">
+                            <li class="d-flex align-items-start gap-2">
+                                <i class="bi bi-check-circle-fill text-success mt-1"></i>
+                                <div><strong>Präzise Mengenberechnung:</strong> Flächen und Raummaße wurden digital erfasst – keine Schätzungen ins Blaue.</div>
+                            </li>
+                            <li class="d-flex align-items-start gap-2">
+                                <i class="bi bi-check-circle-fill text-success mt-1"></i>
+                                <div><strong>Klare Positionen:</strong> Alle Leistungen und Materialien für Fliesen, Kleber und Mörtel sind transparent aufgeschlüsselt.</div>
+                            </li>
+                            <li class="d-flex align-items-start gap-2">
+                                <i class="bi bi-check-circle-fill text-success mt-1"></i>
+                                <div><strong>Keine versteckten Posten:</strong> Nachvollziehbare Einzelpreise und korrekte Steuerausweise.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Секция преимуществ для заказчика -->
+    <section class="py-5" id="vorteile">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-semibold text-uppercase" style="font-size: 0.8rem; letter-spacing: 1.5px;">Für Auftraggeber & Bauherren</span>
+                <h2 class="fw-bold mt-2" style="color: #001C66;">Warum Betriebe mit FUENEX für Sie arbeiten</h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    Handwerker, die FUENEX einsetzen, legen Wert auf Zuverlässigkeit, saubere Dokumentation und Pünktlichkeit.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="text-primary mb-3" style="font-size: 2rem;">
+                            <i class="bi bi-rulers"></i>
+                        </div>
+                        <h4 class="fw-bold h5 mb-2">Exakte 3D-Vermessung</h4>
+                        <p class="text-muted mb-0">
+                            Wände, Nischen und Fenster werden direkt vor Ort digital erfasst. Das verhindert teure Nachkalkulationen und Materialengpässe.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="text-primary mb-3" style="font-size: 2rem;">
+                            <i class="bi bi-file-earmark-pdf"></i>
+                        </div>
+                        <h4 class="fw-bold h5 mb-2">Transparente Dokumente</h4>
+                        <p class="text-muted mb-0">
+                            Statt unübersichtlicher Zettelwirtschaft erhalten Sie ein sauberes, nachvollziehbares PDF-Dokument mit allen Details zum Auftrag.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="text-primary mb-3" style="font-size: 2rem;">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <h4 class="fw-bold h5 mb-2">Schnellere Umsetzung</h4>
+                        <p class="text-muted mb-0">
+                            Durch die nahtlose Kalkulation kann der Betrieb sofort Materialien bestellen und schneller mit der Verlegung beginnen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция для коллег / мастеров -->
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="craftsman-box">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-8">
+                        <span class="badge bg-white text-dark px-3 py-2 rounded-pill fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
+                            FÜR FLIESENLEGER & HANDWERKER
+                        </span>
+                        <h2 class="display-6 fw-bold mb-3 text-white">
+                            Sind Sie selbst Handwerker oder Betriebsinhaber?
+                        </h2>
+                        <p class="text-white-50 mb-4" style="font-size: 1.1rem; line-height: 1.6;">
+                            Erstellen Sie professionelle Angebote in unter 10 Minuten. Nutzen Sie modernes LiDAR-Aufmaß
+                            auf dem Smartphone, automatische Schnitt- und Materialkalkulation und senden Sie rechtssichere
+                            Angebote noch von der Baustelle ab.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a id="btn-craftsman-signup" href="https://home-build.smartsoftsystem.de" class="btn btn-light btn-lg text-primary fw-bold">
+                                14 Tage kostenlos testen <i class="bi bi-chevron-right ms-1"></i>
+                            </a>
+                            <a href="preise.html" class="btn btn-outline-light btn-lg">
+                                Tarife & Funktionen ansehen
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center text-lg-end">
+                        <i class="bi bi-phone text-white opacity-25" style="font-size: 10rem;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="py-4 text-center border-top">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center mb-3">
+                <span class="brand-logo"
+                    style="font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--primary-color);">FUENEX</span>
+                <span class="brand-sub"
+                    style="font-size: 0.6rem; letter-spacing: 0.5px; text-transform: uppercase; color: #64748b;">Digital
+                    Solutions for the Future</span>
+            </div>
+            <div class="d-flex justify-content-center gap-4">
+                <a href="index.html" class="text-muted small text-decoration-none">Startseite</a>
+                <a href="datenschutz.html" class="text-muted small text-decoration-none">Datenschutz</a>
+                <a href="impressum.html" class="text-muted small text-decoration-none">Impressum</a>
+                <a href="preise.html" class="text-muted small text-decoration-none">Preise</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie & Attribution Consent Bar -->
+    <div id="cookie-consent-bar" class="cookie-consent-bar">
+        <div class="container d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+            <div class="text-secondary small">
+                Wir verwenden funktionale Zuordnungs-Cookies, um festzuhalten, dass Sie über ein Angebot zu uns gefunden haben.
+                Details entnehmen Sie unserer <a href="datenschutz.html" class="text-primary text-decoration-underline">Datenschutzerklärung</a>.
+            </div>
+            <div class="d-flex gap-2">
+                <button id="btn-cookie-accept" type="button" class="btn btn-primary btn-sm px-3">
+                    Einverstanden
+                </button>
+                <button id="btn-cookie-close" type="button" class="btn btn-outline-secondary btn-sm px-3">
+                    Schließen
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attribution & Consent Script -->
+    <script>
+        (function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var refCompanyId = urlParams.get('c') || urlParams.get('ref');
+            var baseAppUrl = "https://home-build.smartsoftsystem.de";
+
+            function buildAppUrl(companyId) {
+                var target = new URL(baseAppUrl);
+                target.searchParams.set("src", "pdf_badge");
+                if (companyId) {
+                    target.searchParams.set("ref", companyId);
+                }
+                return target.toString();
+            }
+
+            // Restore from storage if missing in current query
+            if (!refCompanyId) {
+                try {
+                    refCompanyId = localStorage.getItem("fuenex_pdf_ref");
+                } catch (e) {}
+            }
+
+            // Update all CTA links on page
+            if (refCompanyId) {
+                var finalUrl = buildAppUrl(refCompanyId);
+                var signupButtons = ["btn-nav-signup", "btn-hero-signup", "btn-craftsman-signup"];
+                signupButtons.forEach(function(id) {
+                    var el = document.getElementById(id);
+                    if (el) {
+                        el.href = finalUrl;
+                    }
+                });
+
+                // Send viral tracking ping to Java backend
+                var isLocal = ['localhost', '127.0.0.1'].indexOf(location.hostname) !== -1;
+                var API_BASE = isLocal ? 'http://localhost:8083' : 'https://home-build-server.shk.solutions';
+                var pingUrl = API_BASE + '/api/v1/public/tracking/qr-scan';
+                try {
+                    fetch(pingUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            companyId: refCompanyId,
+                            source: 'PDF_BADGE'
+                        })
+                    }).catch(function(err) {
+                        console.debug('Tracking ping failed', err);
+                    });
+                } catch (e) {}
+            }
+
+            // Cookie consent & tracking
+            var consentKey = "fuenex_consent_pdf_ref";
+            var consentGiven = false;
+            try {
+                consentGiven = localStorage.getItem(consentKey) === "1";
+            } catch (e) {}
+
+            function recordAttribution() {
+                if (!refCompanyId) return;
+                try {
+                    localStorage.setItem("fuenex_pdf_ref", refCompanyId);
+                    localStorage.setItem("fuenex_src", "pdf_badge");
+                } catch (e) {}
+                document.cookie = "fuenex_pdf_ref=" + encodeURIComponent(refCompanyId) + "; path=/; max-age=" + (30 * 86400) + "; SameSite=Lax";
+                document.cookie = "fuenex_src=pdf_badge; path=/; max-age=" + (30 * 86400) + "; SameSite=Lax";
+            }
+
+            var consentBar = document.getElementById("cookie-consent-bar");
+            if (!consentGiven && consentBar && refCompanyId) {
+                consentBar.style.display = "block";
+            }
+
+            var btnAccept = document.getElementById("btn-cookie-accept");
+            if (btnAccept) {
+                btnAccept.addEventListener("click", function() {
+                    try {
+                        localStorage.setItem(consentKey, "1");
+                    } catch (e) {}
+                    recordAttribution();
+                    if (consentBar) consentBar.style.display = "none";
+                });
+            }
+
+            var btnClose = document.getElementById("btn-cookie-close");
+            if (btnClose) {
+                btnClose.addEventListener("click", function() {
+                    if (consentBar) consentBar.style.display = "none";
+                });
+            }
+
+            // Also record attribution on click of any CTA button
+            document.querySelectorAll("a[id*='signup']").forEach(function(btn) {
+                btn.addEventListener("click", function() {
+                    recordAttribution();
+                });
+            });
+        })();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
