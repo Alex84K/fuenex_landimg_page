@@ -325,7 +325,7 @@
                 } catch (e) {}
             }
 
-            // Update all CTA links on page
+            // Update all CTA links on page (no data sent anywhere — just rewriting hrefs)
             if (refCompanyId) {
                 var finalUrl = buildAppUrl(refCompanyId);
                 var signupButtons = ["btn-nav-signup", "btn-hero-signup", "btn-craftsman-signup"];
@@ -335,23 +335,6 @@
                         el.href = finalUrl;
                     }
                 });
-
-                // Send viral tracking ping to Java backend
-                var isLocal = ['localhost', '127.0.0.1'].indexOf(location.hostname) !== -1;
-                var API_BASE = isLocal ? 'http://localhost:8083' : 'https://home-build-server.shk.solutions';
-                var pingUrl = API_BASE + '/api/v1/public/tracking/qr-scan';
-                try {
-                    fetch(pingUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            companyId: refCompanyId,
-                            source: 'PDF_BADGE'
-                        })
-                    }).catch(function(err) {
-                        console.debug('Tracking ping failed', err);
-                    });
-                } catch (e) {}
             }
 
             // Cookie consent & tracking
@@ -369,10 +352,33 @@
                 } catch (e) {}
                 document.cookie = "fuenex_pdf_ref=" + encodeURIComponent(refCompanyId) + "; path=/; max-age=" + (30 * 86400) + "; SameSite=Lax";
                 document.cookie = "fuenex_src=pdf_badge; path=/; max-age=" + (30 * 86400) + "; SameSite=Lax";
+
+                // Backend ping — same consent gate as the cookies above (datenschutz.html §4:
+                // no tracking before the visitor has consented or acted on a CTA). Previously
+                // this fired unconditionally on page load, before any consent existed.
+                var isLocal = ['localhost', '127.0.0.1'].indexOf(location.hostname) !== -1;
+                var API_BASE = isLocal ? 'http://localhost:8083' : 'https://home-build-server.shk.solutions';
+                var pingUrl = API_BASE + '/api/v1/public/tracking/qr-scan';
+                try {
+                    fetch(pingUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            companyId: refCompanyId,
+                            source: 'PDF_BADGE'
+                        })
+                    }).catch(function(err) {
+                        console.debug('Tracking ping failed', err);
+                    });
+                } catch (e) {}
             }
 
             var consentBar = document.getElementById("cookie-consent-bar");
-            if (!consentGiven && consentBar && refCompanyId) {
+            if (consentGiven) {
+                // Returning visitor who already consented on a previous visit — refresh the
+                // 30-day cookies and ping without asking again.
+                recordAttribution();
+            } else if (consentBar && refCompanyId) {
                 consentBar.style.display = "block";
             }
 
