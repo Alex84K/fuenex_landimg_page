@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   landing-page:
-    container_name: fuenex_landing
-    image: fuenex_landing:latest
+    container_name: fliesenflow_landing
+    image: fliesenflow_landing:latest
     ports:
       - "5502:80"
     restart: always
