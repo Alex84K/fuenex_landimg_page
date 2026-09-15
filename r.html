@@ -118,7 +118,7 @@
                         <a class="nav-link" href="preise.html">Preise</a>
                     </li>
                     <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                        <a id="btn-nav-signup" href="https://home-build.smartsoftsystem.de"
+                        <a id="btn-nav-signup" href="https://home-build.smartsoftsystem.de" data-app-link
                             class="btn btn-custom-primary btn-sm py-2 px-3 w-100 w-lg-auto text-white">
                             Kostenlos testen
                         </a>
@@ -146,7 +146,7 @@
                         wurde digital aufgemessen, transparent kalkuliert und nach höchsten Handwerksstandards erstellt.
                     </p>
                     <div class="d-flex flex-wrap gap-3">
-                        <a id="btn-hero-signup" href="https://home-build.smartsoftsystem.de" class="btn btn-custom-primary btn-lg">
+                        <a id="btn-hero-signup" href="https://home-build.smartsoftsystem.de" data-app-link class="btn btn-custom-primary btn-lg">
                             Als Handwerker kostenlos testen <i class="bi bi-chevron-right ms-1"></i>
                         </a>
                         <a href="#vorteile" class="btn btn-custom-outline btn-lg">
@@ -249,7 +249,7 @@
                             Angebote noch von der Baustelle ab.
                         </p>
                         <div class="d-flex flex-wrap gap-3">
-                            <a id="btn-craftsman-signup" href="https://home-build.smartsoftsystem.de" class="btn btn-light btn-lg text-primary fw-bold">
+                            <a id="btn-craftsman-signup" href="https://home-build.smartsoftsystem.de" data-app-link class="btn btn-light btn-lg text-primary fw-bold">
                                 14 Tage kostenlos testen <i class="bi bi-chevron-right ms-1"></i>
                             </a>
                             <a href="preise.html" class="btn btn-outline-light btn-lg">
@@ -302,12 +302,14 @@
         </div>
     </div>
 
+    <script src="app-link.js"></script>
+
     <!-- Attribution & Consent Script -->
     <script>
         (function() {
             var urlParams = new URLSearchParams(window.location.search);
             var refCompanyId = urlParams.get('c') || urlParams.get('ref');
-            var baseAppUrl = "https://home-build.smartsoftsystem.de";
+            var baseAppUrl = window.FUENEX_APP_BASE_URL;
 
             function buildAppUrl(companyId) {
                 var target = new URL(baseAppUrl);
